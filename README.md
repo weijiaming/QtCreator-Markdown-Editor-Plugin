@@ -2,4 +2,4 @@
 
 QtCreator Markdown Editor Plugin is a plugin allow developers to create and edit markdown files.
 
-![Introduction](/introduction.jpg)
+![Introduction](/Introduction.png)
