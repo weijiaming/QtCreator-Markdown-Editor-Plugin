@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/mdeditor">
+        <file>MDEditor.mimetypes.xml</file>
+        <file>icons/arrow.png</file>
+        <file>icons/bold.png</file>
+        <file>icons/code.png</file>
+        <file>icons/flow.png</file>
+        <file>icons/image.png</file>
+        <file>icons/italic.png</file>
+        <file>icons/line.png</file>
+        <file>icons/link.png</file>
+        <file>icons/math.png</file>
+        <file>icons/quote.png</file>
+        <file>icons/sequence.png</file>
+        <file>icons/strikethrough.png</file>
+        <file>icons/table.png</file>
+        <file>icons/tasklist.png</file>
+        <file>icons/underline.png</file>
+    </qresource>
+</RCC>

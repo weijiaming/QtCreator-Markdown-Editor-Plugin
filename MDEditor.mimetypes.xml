@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+    <mime-type type="text/markdown">
+        <sub-class-of type="text/plain"/>
+        <comment>Markdown Source file</comment>
+        <glob pattern="*.md"/>
+        <magic priority="256">
+           <match value="[*](*) " type="string" offset="0:2000"/>
+           <match value="![*](*) " type="string" offset="0:2000"/>
+        </magic>
+    </mime-type>
+    <mime-type type="text/x-markdown">
+        <sub-class-of type="text/plain"/>
+        <comment>Markdown Source file</comment>
+        <glob pattern="*.md"/>
+        <magic priority="256">
+           <match value="[*](*) " type="string" offset="0:2000"/>
+           <match value="![*](*) " type="string" offset="0:2000"/>
+        </magic>
+    </mime-type>
+</mime-info>

@@ -1,0 +1,12 @@
+{
+    \"Name\" : \"MDEditor\",
+    \"Version\" : \"0.0.1\",
+    \"CompatVersion\" : \"0.0.1\",
+    \"Vendor\" : \"SyberOS\",
+    \"Copyright\" : \"(C) SyberOS\",
+    \"License\" : \"\",
+    \"Description\" : \"\",
+    \"Url\" : \"http://www.syberos.com\",
+    $$dependencyList
+}
+
