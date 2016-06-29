@@ -1,0 +1,1 @@
+# QtCreator-Markdown-Editor-Plugin
