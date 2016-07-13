@@ -10,4 +10,4 @@ Do not commit its output files (*.html file and .mardown folder) to SVN or GIT, 
 ![Introduction](/Introduction.png)
 
 ##Build
-The plugin is developed based on Qt Creator3.6, Ubuntu OS. Copy [markdown.tar.gz](/markdown.tar.gz)markdown.tar.gz to /qt-creator-dir/share/qtcreator/. And copy other files to /qt-creator-src/src/plugins/ .
+The plugin is developed based on Qt Creator3.6, Ubuntu OS. Copy [markdown.tar.gz](/markdown.tar.gz) to /qt-creator-dir/share/qtcreator/. And copy other files to /qt-creator-src/src/plugins/ .
