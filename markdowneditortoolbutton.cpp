@@ -1,4 +1,5 @@
 #include "markdowneditortoolbutton.h"
+#include "markdowneditorhelpdialog.h"
 #include "texteditor/texteditor.h"
 #include <QDebug>
 
@@ -6,8 +7,19 @@ namespace MDEditor{
 class MarkdownEditorToolButtonPrivate
 {
 public:
+
+    MarkdownEditorToolButtonPrivate() {}
+    ~MarkdownEditorToolButtonPrivate()
+    {
+        if(helpDlg)
+        {
+            delete helpDlg;
+            helpDlg = nullptr;
+        }
+    }
     MarkdownEditorToolButton::ButtonId m_ButtonId = MarkdownEditorToolButton::ID_Unknown;
     TextEditor::TextEditorWidget* m_editorWidget = nullptr;
+    MarkdownEditorHelpDialog* helpDlg = nullptr;
 
     void apply();
 };
@@ -23,22 +35,34 @@ void MarkdownEditorToolButtonPrivate::apply()
     case MarkdownEditorToolButton::ID_StrikeThrough:
     case MarkdownEditorToolButton::ID_Code:
     {
-        QString str;
+        QString markerStr;
         if(m_ButtonId == MarkdownEditorToolButton::ID_Bold)
-            str = QString::fromUtf8("****");
+            markerStr = QString::fromUtf8("**");
         else if(m_ButtonId == MarkdownEditorToolButton::ID_Italic)
-            str = QString::fromUtf8("**");
+            markerStr = QString::fromUtf8("*");
         else if(m_ButtonId == MarkdownEditorToolButton::ID_StrikeThrough)
-            str = QString::fromUtf8("~~~~");
-        else if(m_ButtonId == MarkdownEditorToolButton::ID_Code)
-            str = QString::fromUtf8("\n```\n\n```\n");
+            markerStr = QString::fromUtf8("~~");
+        else if(m_ButtonId ==MarkdownEditorToolButton::ID_Code )
+            markerStr = QString::fromUtf8("\n```\n");
 
-        int moveCursorNum = str.length()/2;
-        str.insert(moveCursorNum, m_editorWidget->selectedText());
-        m_editorWidget->insertPlainText(str);
+        int markerStrLength = markerStr.length();
+        QString targetStr = m_editorWidget->selectedText();
+
+        if(targetStr.startsWith(markerStr) && targetStr.endsWith(markerStr))
+        {
+            targetStr.remove(0, markerStrLength);
+            targetStr.remove(targetStr.length() - markerStrLength,markerStrLength);
+        }
+        else
+        {
+            targetStr.prepend(markerStr);
+            targetStr.append(markerStr);
+        }
+        m_editorWidget->insertPlainText(targetStr);
         QTextCursor tc = m_editorWidget->textCursor();
-        tc.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, moveCursorNum);
+        tc.movePosition(QTextCursor::Left, QTextCursor::MoveAnchor, markerStrLength);
         m_editorWidget->setTextCursor(tc);
+
         break;
     }
     case MarkdownEditorToolButton::ID_H1:
@@ -107,6 +131,14 @@ Note right of D: Note right of D\n```"));
         m_editorWidget->insertLineBelow();
         break;
     }
+    case MarkdownEditorToolButton::ID_Help:
+    {
+        if(!helpDlg)
+        {
+            helpDlg = new MarkdownEditorHelpDialog(m_editorWidget);
+        }
+        helpDlg->show();
+    }
     default:
         break;
     }
@@ -151,7 +183,7 @@ void MarkdownEditorToolButton::setButtonId(ButtonId id)
         break;
     case ID_StrikeThrough:
         img = QImage(QLatin1String(":/mdeditor/icons/strikethrough.png"));
-        tooltips = QString::fromUtf8("StrikeThrough");
+        tooltips = QString::fromUtf8("Strike Through");
         break;
     case ID_H1:
         setText(QString::fromUtf8("H1"));
@@ -173,11 +205,11 @@ void MarkdownEditorToolButton::setButtonId(ButtonId id)
         break;
     case ID_HorizonalRule:
         img = QImage(QLatin1String(":/mdeditor/icons/line.png"));
-        tooltips = QString::fromUtf8("HorizonalRule");
+        tooltips = QString::fromUtf8("Horizonal Rule");
         break;
     case ID_Tastlist:
         img = QImage(QLatin1String(":/mdeditor/icons/tasklist.png"));
-        tooltips = QString::fromUtf8("TaskList");
+        tooltips = QString::fromUtf8("Task List");
         break;
     case ID_Link:
         img = QImage(QLatin1String(":/mdeditor/icons/link.png"));
@@ -193,7 +225,7 @@ void MarkdownEditorToolButton::setButtonId(ButtonId id)
         break;
     case ID_MathFormula:
         img = QImage(QLatin1String(":/mdeditor/icons/math.png"));
-        tooltips = QString::fromUtf8("MathFormula");
+        tooltips = QString::fromUtf8("Math Formula");
         break;
     case ID_Code:
         img = QImage(QLatin1String(":/mdeditor/icons/code.png"));
@@ -201,11 +233,16 @@ void MarkdownEditorToolButton::setButtonId(ButtonId id)
         break;
     case ID_FlowChart:
         img = QImage(QLatin1String(":/mdeditor/icons/flow.png"));
-        tooltips = QString::fromUtf8("FlowChart");
+        tooltips = QString::fromUtf8("Flow Chart");
         break;
     case ID_SequenceDiagram:
         img = QImage(QLatin1String(":/mdeditor/icons/sequence.png"));
-        tooltips = QString::fromUtf8("SequenceDiagram");
+        tooltips = QString::fromUtf8("Sequence Diagram");
+        break;
+
+    case ID_Help:
+        img = QImage(QLatin1String(":/mdeditor/icons/help.png"));
+        tooltips = QString::fromUtf8("Help Contents");
         break;
     default:
         break;

@@ -16,5 +16,7 @@
         <file>icons/table.png</file>
         <file>icons/tasklist.png</file>
         <file>icons/underline.png</file>
+        <file>icons/help.png</file>
+        <file>icons/markdown.png</file>
     </qresource>
 </RCC>

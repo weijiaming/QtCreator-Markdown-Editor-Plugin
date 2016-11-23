@@ -58,23 +58,24 @@ void MarkdownEditorWidget::addToolBar()
 {
     QList<MarkdownEditorToolButton::ButtonId> ids;
     ids<<MarkdownEditorToolButton::ID_Bold
-       <<MarkdownEditorToolButton::ID_Italic
-       <<MarkdownEditorToolButton::ID_StrikeThrough
+      <<MarkdownEditorToolButton::ID_Italic
+     <<MarkdownEditorToolButton::ID_StrikeThrough
 //       <<MarkdownEditorToolButton::ID_H1
 //       <<MarkdownEditorToolButton::ID_H2
 //       <<MarkdownEditorToolButton::ID_H3
 //       <<MarkdownEditorToolButton::ID_H4
 //       <<MarkdownEditorToolButton::ID_H5
 //       <<MarkdownEditorToolButton::ID_H6
-       <<MarkdownEditorToolButton::ID_HorizonalRule
-       <<MarkdownEditorToolButton::ID_Link
-       <<MarkdownEditorToolButton::ID_Image
-       <<MarkdownEditorToolButton::ID_Table
-       <<MarkdownEditorToolButton::ID_Tastlist
-       <<MarkdownEditorToolButton::ID_Code
-       <<MarkdownEditorToolButton::ID_MathFormula
-       <<MarkdownEditorToolButton::ID_FlowChart
-       <<MarkdownEditorToolButton::ID_SequenceDiagram;
+    <<MarkdownEditorToolButton::ID_HorizonalRule
+    <<MarkdownEditorToolButton::ID_Link
+    <<MarkdownEditorToolButton::ID_Image
+    <<MarkdownEditorToolButton::ID_Table
+    <<MarkdownEditorToolButton::ID_Tastlist
+    <<MarkdownEditorToolButton::ID_Code
+    <<MarkdownEditorToolButton::ID_MathFormula
+    <<MarkdownEditorToolButton::ID_FlowChart
+    <<MarkdownEditorToolButton::ID_SequenceDiagram
+    <<MarkdownEditorToolButton::ID_Help;
 
     foreach (const MarkdownEditorToolButton::ButtonId id, ids) {
         MarkdownEditorToolButton* but = new MarkdownEditorToolButton(id, this);

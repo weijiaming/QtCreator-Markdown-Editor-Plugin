@@ -12,7 +12,7 @@
     <mime-type type="text/x-markdown">
         <sub-class-of type="text/plain"/>
         <comment>Markdown Source file</comment>
-        <glob pattern="*.md"/>
+        <glob pattern="*.markdown"/>
         <magic priority="256">
            <match value="[*](*) " type="string" offset="0:2000"/>
            <match value="![*](*) " type="string" offset="0:2000"/>

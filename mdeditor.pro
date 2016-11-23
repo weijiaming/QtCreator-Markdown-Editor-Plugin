@@ -12,7 +12,8 @@ HEADERS += \
     markdownconverterinterface.h \
     discontconverter.h \
     pandocconverter.h \
-    markdown2htmlconverter.h
+    markdown2htmlconverter.h \
+    markdowneditorhelpdialog.h
 
 SOURCES += \
     mdeditorplugin.cpp \
@@ -22,9 +23,11 @@ SOURCES += \
     markdowneditortoolbutton.cpp \
     discontconverter.cpp \
     pandocconverter.cpp \
-    markdown2htmlconverter.cpp
+    markdown2htmlconverter.cpp \
+    markdowneditorhelpdialog.cpp
 
 FORMS += \
+    markdowneditorhelpdialog.ui
 
 RESOURCES += \
     mdeditor.qrc

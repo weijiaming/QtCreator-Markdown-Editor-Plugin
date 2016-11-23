@@ -34,7 +34,8 @@ public:
         ID_MathFormula,
         ID_Code,
         ID_FlowChart,
-        ID_SequenceDiagram
+        ID_SequenceDiagram,
+        ID_Help
     };
 
     MarkdownEditorToolButton(ButtonId, QWidget* parent = 0);

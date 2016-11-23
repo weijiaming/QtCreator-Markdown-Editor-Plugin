@@ -4,6 +4,7 @@
 
 #include <QFile>
 #include <QFileInfo>
+#include <QProcess>
 
 using namespace MDEditor;
 
@@ -70,6 +71,8 @@ void Markdown2HtmlConverter::initHiddenFolder(const Utils::FileName inputFileNam
     if(fi.exists())
     {
         QString extractCmd = QString::fromLatin1("tar zxvf %1 -C %2").arg(sourcePkg).arg(targetPath.toString());
-        system((const char*)extractCmd.toLocal8Bit());
+        QProcess process;
+        process.start(extractCmd);
+        process.waitForFinished();
     }
 }
