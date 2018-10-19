@@ -5,23 +5,23 @@ Markdown Editor Plugin is a plugin allowing developers to create and edit markdo
 It supports the standard [Markdown](https://daringfireball.net/projects/markdown/), [MathJax](https://www.mathjax.org/), [js-sequence-diagrams](https://bramp.github.io/js-sequence-diagrams/)
  and [flowChart](http://flowchart.js.org/) syntax.
  
-![editor](/editor.png)
+![editor](/introduction/editor.png)
 
 Add Markdown file to your project:
 
-![new_file_wizard](/new_file_wizard.png)
+![new_file_wizard](/introduction/new_file_wizard.png)
 
 A new markdown file will be generated automatically when wizard finishes.
 
-![new_file_location.png](/new_file_location.png)
+![new_file_location.png](/introduction/new_file_location.png)
 
 Shortcuts for Bold, Italic, Link, Image, Table, Tasklist, Math Formula, Sequence Diagram, Flow Charts, etc:
 
-![shortcuts.png](/shortcuts.png)
+![shortcuts.png](/introduction/shortcuts.png)
 
 About the plugin:
 
-![about.png](/about.png)
+![about.png](/introduction/about.png)
 
 ## Build
 
